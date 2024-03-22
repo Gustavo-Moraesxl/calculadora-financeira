@@ -1,0 +1,126 @@
+Peço desculpas pelo erro. Vou revisar o cálculo e ajustar o valor economizado. Aqui está a versão corrigida:
+
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .calculator {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .card-title {
+            color: #007bff;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .card-text {
+            color: #333;
+            font-size: 16px;
+        }
+
+        .btn-primary,
+        .btn-success {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover,
+        .btn-success:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .form-control {
+            border-radius: 5px;
+        }
+
+        #result {
+            font-size: 18px;
+            margin-top: 20px;
+            color: #28a745;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="calculator">
+                    <input type="text" class="form-control mb-3" id="display" readonly>
+                    <div class="butao">
+                        <button class="btn btn-primary btn-block my-2" onclick="butao1()">Empresa</button>
+                    </div>
+                    <div id="additionalInputs" style="display: none;">
+                        <input type="number" class="form-control mb-2" id="numSystems"
+                            placeholder="Quantidade de Sistemas Winda'S">
+                        <input type="number" class="form-control mb-2" id="acExpenses"
+                            placeholder="Gastos com ar-condicionado por mês">
+                        <input type="number" class="form-control mb-2" id="hoursOfUse"
+                            placeholder="Horas ligadas do ar condicionado por dia">
+                        <input type="number" class="form-control mb-2" id="btu" placeholder="BTU do ar condicionado">
+                    </div>
+                    <button class="btn btn-success btn-block mt-3" onclick="calculate()">Calcular</button>
+                    <p id="result"></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <h5 class="card-title">Benefícios das Janelas Inteligentes</h5>
+                    <p class="card-text">As janelas inteligentes ajudam a regular a temperatura dentro do hotel, reduzindo a necessidade de usar o ar-condicionado com tanta frequência. Com menos dependência do ar-condicionado, o consumo de energia diminui, levando a uma redução nos custos mensais de energia. Além disso, as janelas inteligentes mantêm os quartos mais frescos durante o dia, o que significa menos esforço do sistema de ar-condicionado para resfriá-los, resultando em ainda mais economia de energia.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function butao1() {
+            var numSystems = parseFloat(document.getElementById('numSystems').value);
+            var valueSystems = 518;
+            var acExpenses = parseFloat(document.getElementById('acExpenses').value);
+            var hoursOfUse = parseInt(document.getElementById('hoursOfUse').value);
+            var btu = parseInt(document.getElementById('btu').value);
+
+            var totalValue = valueSystems * numSystems + acExpenses;
+            var wattsAr = btu * 0.293;
+            var contaKwHMes = (wattsAr * hoursOfUse * 30) / 1000; // Assuming 30 days in a month
+            var gastoFinal = contaKwHMes * 0.4 * numSystems;
+            var gastoFinal = contaKwHMes * 0.4 * numSystems;
+            var message = `Economize R$ ${gastoFinal.toFixed(2)} por mês com o sistema de janelas inteligentes!`;
+
+            document.getElementById('result').innerHTML = message;
+            document.getElementById('additionalInputs').style.display = 'block';
+        }
+
+        function calculate() {
+            butao1();
+        }
+    </script>
+</body>
+
+</html>
+
+
